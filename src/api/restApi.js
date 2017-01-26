@@ -3,8 +3,8 @@ var restService = require('../service/restService');
 
 class RestApi extends BaseApi {
 
-    doSomething(req, res) {
-        restService.doSomething().then(() => {
+    findNode(req, res) {
+        restService.findNode().then(() => {
             // success
             res.status(200).send('success');
         }, (err) => {
@@ -17,7 +17,7 @@ class RestApi extends BaseApi {
 var restApi = new RestApi();
 
 module.exports = [{
-    method: 'post',
-    route: '/api/doSomething',
-    func: restApi.doSomething
+    method: 'get',
+    route: '/api/findNode',
+    func: restApi.findNode
 }];

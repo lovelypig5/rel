@@ -2,7 +2,6 @@ var express = require('express');
 var fallback = require('express-history-api-fallback');
 var logger = require('./logger');
 var filters = require('./filters');
-var routes = require('./route');
 var apis = require('./api');
 
 var app = express();
@@ -10,7 +9,7 @@ var app = express();
 app.use((req, res, next) => {
     logger.info('%s %s %s', req.method, req.url, req.path);
     next();
-})
+});
 
 filters.forEach((filter) => {
     if (filter.route) {
